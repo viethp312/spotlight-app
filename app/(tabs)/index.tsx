@@ -1,22 +1,16 @@
 import { useAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import { useQuery } from "convex/react";
-import {
-  FlatList,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
 import { Loader } from "@/components/Loader";
 import Post from "@/components/Post";
-import Story from "@/components/Story";
-import { STORIES } from "@/constants/mock-data";
+import Stories from "@/components/Stories";
 import { COLORS } from "@/constants/theme";
 import { api } from "@/convex/_generated/api";
 import { styles } from "@/styles/feed.styles";
-export default function index() {
+
+export default function Index() {
   const { signOut } = useAuth();
 
   const posts = useQuery(api.posts.getFeedPosts);
@@ -35,7 +29,6 @@ export default function index() {
         </TouchableOpacity>
       </View>
 
-    
       {/* POSTS */}
       <FlatList
         data={posts}
@@ -45,17 +38,7 @@ export default function index() {
         contentContainerStyle={{
           paddingBottom: 60,
         }}
-        ListHeaderComponent={
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={true}
-            style={styles.storiesContainer}
-          >
-            {STORIES.map((story) => (
-              <Story key={story.id} story={story} />
-            ))}
-          </ScrollView>
-        }
+        ListHeaderComponent={<Stories />}
       />
     </View>
   );
