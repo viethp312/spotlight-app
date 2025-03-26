@@ -36,8 +36,6 @@ export default function Post({ post }: PostProps) {
 
   const [isLiked, setIsLiked] = useState(post.isLiked);
   const [isBookmarked, setIsBookmarked] = useState(post.isBookmarked);
-  const [likesCount, setLikesCount] = useState(post.likes);
-  const [commentsCount, setCommentsCount] = useState(post.comments);
   const [showComments, setShowComments] = useState(false);
 
   const toggleLike = useMutation(api.posts.toggleLike);
@@ -56,7 +54,6 @@ export default function Post({ post }: PostProps) {
     try {
       const newIsLiked = await toggleLike({ postId: post._id });
       setIsLiked(newIsLiked);
-      setLikesCount((prev) => (newIsLiked ? prev + 1 : prev - 1));
     } catch (error) {
       console.log("Error toggling like", error);
     }
@@ -160,7 +157,7 @@ export default function Post({ post }: PostProps) {
       {/* POST INFO */}
       <View style={styles.postInfo}>
         <Text style={styles.likesText}>
-          {likesCount > 0 ? `${likesCount} likes` : "Be the first to like"}
+          {post.likes > 0 ? `${post.likes} likes` : "Be the first to like"}
         </Text>
         {post.caption && (
           <View style={styles.captionContainer}>
@@ -169,10 +166,10 @@ export default function Post({ post }: PostProps) {
           </View>
         )}
 
-        {commentsCount > 0 && (
+        {post.comments > 0 && (
           <TouchableOpacity>
             <Text style={styles.commentsText}>
-              View all {commentsCount} comments
+              View all {post.comments} comments
             </Text>
           </TouchableOpacity>
         )}
@@ -186,9 +183,6 @@ export default function Post({ post }: PostProps) {
         postId={post._id}
         visible={showComments}
         onClose={() => setShowComments(false)}
-        onCommentAdded={() => {
-          setCommentsCount((prev) => prev + 1);
-        }}
       />
     </View>
   );

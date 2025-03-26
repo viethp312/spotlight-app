@@ -39,7 +39,13 @@ export default function Notification({ notification }: any) {
         </Link>
 
         <View style={styles.notificationInfo}>
-          <Link href={`/(tabs)/notifications`} asChild>
+          <Link
+            href={{
+              pathname: "/user/[id]",
+              params: { id: notification.sender._id },
+            }}
+            asChild
+          >
             <TouchableOpacity>
               <Text style={styles.username}>
                 {notification.sender.username}
