@@ -1,6 +1,14 @@
 # Demo
 
-This project demonstrates the integration of Clerk for authentication and Convex as a cloud database in a React Native application.
+   <img src="./assets/images/demo/demo1.png" style="width: 30%;" alt="feed">
+   <img src="./assets/images/demo/demo2.png" style="width: 30%;" alt="bookmarks">
+   <img src="./assets/images/demo/demo3.png" style="width: 30%;" alt="notifications">
+   <img src="./assets/images/demo/demo4.png" style="width: 30%;" alt="profile">
+   <img src="./assets/images/demo/demo5.png" style="width: 30%;" alt="update-profile">
+   <img src="./assets/images/demo/demo6.png" style="width: 30%;" alt="create">
+   <img src="./assets/images/demo/demo7.png" style="width: 30%;" alt="create">
+   <img src="./assets/images/demo/demo8.png" style="width: 30%;" alt="create">
+   <img src="./assets/images/demo/demo9.png" style="width: 30%;" alt="create">
 
 # Setup
 

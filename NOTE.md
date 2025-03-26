@@ -80,3 +80,42 @@
 
 - Create smooth animations with an excellent developer experience.
 - Learn more: [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/).
+
+
+# Building & Publishing
+
+- You can build your app for production with Expo Application Services (EAS).
+- If you want to submit it to Google Play Store / App Store you'll need a developer account.
+- It would take a couple of days/weeks till your app gets accepted and goes live.
+- [Building your project](https://docs.expo.dev/deploy/build-project/)
+- [Submitting to app stores](https://docs.expo.dev/deploy/submit-to-app-stores/)
+
+## Steps to Build and Publish Your App
+
+1. **Visit Expo's Website**: Go to [expo.dev](https://expo.dev) and sign up for an account if you haven't already.
+2. **Install EAS CLI**: Open your terminal and run the following command to install the Expo Application Services Command Line Interface globally:
+   ```bash
+   npm install -g eas-cli
+   ```
+3. **Log In to EAS**: Authenticate your account by running:
+   ```bash
+   eas login
+   ```
+4. **Initialize Your Project**: Start a new project setup by executing:
+   ```bash
+   eas init
+   ```
+   Follow the prompts to create your project; simply respond with "yes" when asked.
+5. **Build for Android**: To create an APK file for Android, run:
+   ```bash
+   eas build --platform android
+   ```
+6. **Build for iOS**: To create an IPA file for iOS, run:
+   ```bash
+   eas build --platform ios
+   ```
+7. **Submit Your Builds**: Once you have your APK and IPA files, you can submit them to the Google Play Store and Apple App Store, respectively.
+
+**Note**: Ensure you have the necessary developer accounts for both platforms to facilitate the submission process.
+
+# Your challenge to publish this app and let us know! ✨
