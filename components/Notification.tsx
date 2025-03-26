@@ -12,7 +12,13 @@ export default function Notification({ notification }: any) {
   return (
     <View style={styles.notificationItem}>
       <View style={styles.notificationContent}>
-        <Link href={`/(tabs)/notifications`} asChild>
+        <Link
+          href={{
+            pathname: "/user/[id]",
+            params: { id: notification.sender._id },
+          }}
+          asChild
+        >
           <TouchableOpacity style={styles.avatarContainer}>
             <Image
               source={notification.sender.image}

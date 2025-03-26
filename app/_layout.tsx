@@ -1,6 +1,8 @@
 import { useFonts } from "expo-font";
+import * as NavigationBar from "expo-navigation-bar";
 import { SplashScreen } from "expo-router";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { Platform } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS } from "@/constants/theme";
@@ -24,6 +26,13 @@ export default function RootLayout() {
   if (!fontsLoaded) {
     return null;
   }
+
+  useEffect(() => {
+    if (Platform.OS === "android") {
+      NavigationBar.setBackgroundColorAsync(COLORS.background);
+      NavigationBar.setButtonStyleAsync("light");
+    }
+  }, []);
 
   return (
     <ClerkAndConvexProvider>
